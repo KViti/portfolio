@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    {{ feat.tittle }}
+{% endblock %}
+
+{% block content %}
+    <h1>Детали запроса на улучшение {{ feat.id }}</h1>
+    <p><a href="{% url 'quality_control:update_feature' feat.id %}">Изменить запрос на улучшение</a></p>
+    <ul>
+        <li>Название: {{ feat.title }}</li>
+        <li>Описание: {{ feat.description }}</li>
+        <li>Статус: {{ feat.status }}</li>
+        <li>Приоритет: {{ feat.priority }}</li>
+        <li>Проект: {{ feat.project }}</li>
+        <li>Задача: {{ feat.task }}</li>
+    </ul>
+    <p><a href="{% url 'quality_control:delete_feature' feat.id %}" onclick="return confirm('Вы уверены, что хотите удалить этот запрос на улучшение?');">Удалить запрос на улучшение</a></p>
+{% endblock %}

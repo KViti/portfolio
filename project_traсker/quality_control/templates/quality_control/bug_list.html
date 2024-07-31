@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    Список багов
+{% endblock %}
+
+{% block content %}
+    <h1>Список багов</h1>
+
+
+    <p><a href="{% url 'quality_control:new_bug' %}">Сообщить о новом баге</a></p>
+
+
+    <ul>
+        {% for bug in bugs %}
+            <li><a href="{% url 'quality_control:bug_detail' bug.id %}">{{bug.title}}</a> - Статус: {{bug.status}}</li>
+        {% empty %}
+            <li>Список багов пуст.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
