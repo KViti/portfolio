@@ -1,0 +1,1 @@
+print('Current location is', input(), 'and time is', input())
